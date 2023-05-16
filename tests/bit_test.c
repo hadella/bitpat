@@ -106,3 +106,31 @@ Test(bitpat_test, bit_toggle_test)
 		cr_expect(bit_test(u, i) == 0, "bit_test(%u, %u) should be 0 if bit is clear", u, i);
 	}	
 }
+
+Test(bitpat_test, bitpat_search_test)
+{
+	printf("bitpat_search(0x6f, 5, 0) = %u\n", bitpat_search(0x6f, 5, 0));
+
+	// TODO -- do a more thorough test
+
+	// This pattern is present
+	cr_expect(bitpat_search(0x6f, 5, 0) == 3, "bitpat_search(0x6f, 5, 0) should be 3");
+	cr_expect(bitpat_search(0x6f, 5, 1) == 3, "bitpat_search(0x6f, 5, 1) should be 3");
+	cr_expect(bitpat_search(0x6f, 5, 2) == 3, "bitpat_search(0x6f, 5, 2) should be 3");
+	
+	// This pattern is not present
+	cr_expect(bitpat_search(0x6f, 5, 4) == -1, "bitpat_search(0x6f, 5, 4) should be -1");
+	cr_expect(bitpat_search(0x7f, 5, 0) == -1, "bitpat_search(0x7f, 5, 0) should be -1");
+}
+
+Test(bitpat_test, bitpat_get_test)
+{
+	// TODO -- add this test
+	cr_expect(0 == 0, "fill in with real test");
+}
+
+Test(bitpat_test, bitpat_set_test)
+{
+	// TODO -- add this test
+	cr_expect(0 == 0, "fill in with real test");	
+}
